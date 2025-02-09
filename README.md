@@ -60,34 +60,6 @@ tail -f logs/app.log
 docker stop flask-app
 docker rm flask-app
 
-📌 Docker Compose Setup (Optional)
-
-For easy multi-container management, use Docker Compose.
-
-1️⃣ Create docker-compose.yml:
-
-version: "3.8"
-
-services:
-  flask-app:
-    image: flask-app
-    container_name: flask-app
-    build: .
-    ports:
-      - "5000:5000"
-    volumes:
-      - ./logs:/flask-app/logs  # Persist logs on the host
-
-2️⃣ Run the app using Compose:
-
-docker-compose up -d
-
-📌 Environment Variables (Optional)
-
-You can configure the app using environment variables:
-
-FLASK_ENV=production
-FLASK_DEBUG=0
 
 📌 Next Steps
 

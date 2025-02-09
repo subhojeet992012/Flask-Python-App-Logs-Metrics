@@ -1,10 +1,15 @@
-FROM python:latest
+FROM python:3.12-alpine
 
 WORKDIR /flask-app 
 
-COPY . . 
+RUN mkdir static
+COPY static ./static/.
+
+COPY app.py requirements.txt .
 
 RUN pip install -r requirements.txt
+
+RUN mkdir logs
 
 ENTRYPOINT ["python3"]
 CMD ["app.py"]
